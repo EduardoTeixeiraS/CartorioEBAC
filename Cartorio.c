@@ -128,7 +128,8 @@ int main()
 		printf("Escolha a opção desejada do menu:\n\n");
 		printf("\t1 - Registrar nomes\n");
 		printf("\t2 - Consultar nomes\n");
-		printf("\t3 - Deletar nomes\n\n\n");
+		printf("\t3 - Deletar nomes\n");
+		printf("\t4 - Sair do sistema\n\n");
 		printf("Opção: "); //Fim do Menu
 	
 		scanf("%d", &opcao); //Input do usuário (Armazenando a escolha do usuário)
@@ -149,8 +150,13 @@ int main()
 			deletar(); //chamada de função
 			break;
 			
+			case 4:
+			printf("Obrigado por usar nosso sistema!\n");
+			return 0; //retorna valor 0 para o laço quebrando o loop
+			break;
+			
 			default:
-			printf("### Essa opção não esta disponivel! ###\n\n");
+			printf("### Essa opção não esta disponível! ###\n\n");
 			system("pause");
 			break;
 		}
