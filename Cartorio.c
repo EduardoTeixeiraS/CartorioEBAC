@@ -68,11 +68,11 @@ int consulta() //Função consultar
 	char cpf[40];
 	char conteudo[200];
 	
-	printf("Digite o CPF a ser consultado: \n");
+	printf("Digite o CPF a ser consultado: \n"); //Recebendo qual usuário vai ser consultado
 	scanf("%s",cpf);
 	
 	FILE *file;
-	file = fopen(cpf,"r");
+	file = fopen(cpf,"r"); // "r" é ler
 	
 	if(file == NULL)
 	{
@@ -99,8 +99,6 @@ int deletar() //Função deletar
 	printf("Digite o CPF a ser deletado: \n");
 	scanf("%s", cpf);
 	
-	remove(cpf);
-	
 	FILE *file;
 	file = fopen(cpf, "r");
 	
@@ -109,6 +107,20 @@ int deletar() //Função deletar
 		printf("O usuário não foi encontrado no sistema! \n");
 		system("pause");
 	}
+	
+	else
+	{
+		fclose(file);
+		remove(cpf);
+		FILE *file;
+		file = fopen(cpf,"r");
+		if(file == NULL)
+		{
+			printf("Usuário deletado com sucesso.\n");
+			system("pause");
+		}
+	}
+	fclose(file);
 	
 }
 
@@ -144,7 +156,7 @@ int main()
 			printf("\t4 - Sair do sistema\n\n");
 			printf("Opção: "); //Fim do Menu
 	
-			scanf("%d", &opcao); //Input do usuário (Armazenando a escolha do usuário)
+			scanf("%d", &opcao); //Input do usuário (Armazenando a escolha do usuário) / "%d" é para inteiros
 	
 			system("cls"); //Limpar a tela depois da escolha do usuário
 		
